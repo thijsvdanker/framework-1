@@ -338,7 +338,7 @@ trait BuildsQueries
     protected function cursorPaginator($items, $perPage, $total, $cursor, $options)
     {
         return Container::getInstance()->makeWith(CursorPaginator::class, compact(
-            'items', 'perPage', 'total', 'cursor', 'options'
+            'items', 'total', 'perPage', 'cursor', 'options'
         ));
     }
 }

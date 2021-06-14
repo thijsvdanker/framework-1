@@ -855,7 +855,7 @@ class Builder
         $total = $this->count();
         $this->take($perPage + 1);
 
-        return $this->cursorPaginator($this->get($columns), $perPage, $total, $cursor, [
+        return $this->cursorPaginator($this->get($columns), $total, $perPage, $cursor, [
             'path' => Paginator::resolveCurrentPath(),
             'cursorName' => $cursorName,
             'parameters' => $parameters,
