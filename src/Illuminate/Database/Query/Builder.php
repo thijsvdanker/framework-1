@@ -2483,9 +2483,10 @@ class Builder
             }
         }
 
+        $total = $this->count();
         $this->limit($perPage + 1);
 
-        return $this->cursorPaginator($this->get($columns), $perPage, $cursor, [
+        return $this->cursorPaginator($this->get($columns), $total, $perPage, $cursor, [
             'path' => Paginator::resolveCurrentPath(),
             'cursorName' => $cursorName,
             'parameters' => $parameters,

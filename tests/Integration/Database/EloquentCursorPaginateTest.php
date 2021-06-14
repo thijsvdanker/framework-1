@@ -41,6 +41,19 @@ class EloquentCursorPaginateTest extends DatabaseTestCase
         $this->assertCount(15, TestPost::cursorPaginate(15, ['id', 'title']));
     }
 
+    public function testCursorPaginationHasTotal()
+    {
+        for ($i = 1; $i <= 50; $i++) {
+            TestPost::create([
+                'title' => 'Title '.$i,
+            ]);
+        }
+
+        $query = TestPost::cursorPaginate(15);
+        $this->assertEquals(15, $query->count());
+        $this->assertEquals(50, $query->total());
+    }
+
     public function testPaginationWithDistinct()
     {
         for ($i = 1; $i <= 3; $i++) {
