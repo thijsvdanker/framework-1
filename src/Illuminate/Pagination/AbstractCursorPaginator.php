@@ -33,6 +33,13 @@ abstract class AbstractCursorPaginator implements Htmlable
     protected $perPage;
 
     /**
+     * The total number of items.
+     *
+     * @var int
+     */
+    protected $total;
+
+    /**
      * The base path to assign to all URLs.
      *
      * @var string
@@ -498,6 +505,16 @@ abstract class AbstractCursorPaginator implements Htmlable
     public function count()
     {
         return $this->items->count();
+    }
+
+    /**
+     * Get the number of items for the all pages.
+     *
+     * @return int
+     */
+    public function total()
+    {
+        return $this->total;
     }
 
     /**

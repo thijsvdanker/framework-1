@@ -330,14 +330,15 @@ trait BuildsQueries
      *
      * @param  \Illuminate\Support\Collection  $items
      * @param  int  $perPage
+     * @param  int  $total
      * @param  \Illuminate\Pagination\Cursor  $cursor
      * @param  array  $options
      * @return \Illuminate\Pagination\Paginator
      */
-    protected function cursorPaginator($items, $perPage, $cursor, $options)
+    protected function cursorPaginator($items, $perPage, $total, $cursor, $options)
     {
         return Container::getInstance()->makeWith(CursorPaginator::class, compact(
-            'items', 'perPage', 'cursor', 'options'
+            'items', 'perPage', 'total', 'cursor', 'options'
         ));
     }
 }
